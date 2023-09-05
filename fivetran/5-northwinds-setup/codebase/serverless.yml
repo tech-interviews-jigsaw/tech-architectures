@@ -1,0 +1,20 @@
+service: northwinds
+frameworkVersion: '3'
+provider:
+  name: aws
+  memorySize: 10240 
+  timeout: 45
+resources:
+  Resources:
+    MyDatabase:
+      Type: AWS::RDS::DBInstance
+      Properties:
+        AllocatedStorage: 20
+        DBInstanceIdentifier: northwinds
+        Engine: postgres
+        EngineVersion: 14.7
+        Port: 5432
+        MasterUsername: jigsaw
+        MasterUserPassword: jigsawlabs
+        DBInstanceClass: db.t3.micro
+        PubliclyAccessible: true
